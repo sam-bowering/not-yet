@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { getList } from '../actions/list'
 
@@ -10,9 +11,13 @@ class List extends React.Component {
 
   render () {
     return(
-      <ul>
-        {this.props.list.map(listItem => <li key={listItem.id}>{listItem.name}</li>)}
-      </ul>
+      <>
+        <ul>
+          {this.props.list.map(listItem => <li key={listItem.id}>{listItem.name}</li>)}
+        </ul>
+        <br/>
+        <Link to='/'>Go Back</Link>
+      </>
     )
   }
 }
