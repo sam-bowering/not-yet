@@ -5,18 +5,18 @@ import List from './List'
 class Welcome extends React.Component {
   render () {
     return(
-      <>
-        <div className='header'>
+      <div className='welcome-container'>
+        {/* <div className='header'>
           <button>Sign In</button>
           <button>Sign Out</button>
           <button>Register</button>
-        </div>
+        </div> */}
         <div className='title-message'>
           <h1>Not Yet?</h1>
           <span>Does this sound like you? Jump in and get your 'Not Yet's sorted!</span> 
         </div>
-        <List />
-      </>
+        {/* <List /> */}
+      </div>
     )
   }
 }
