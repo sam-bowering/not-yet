@@ -1,0 +1,30 @@
+* {
+  margin: 0px
+}
+
+#app {
+  height: 100vh;
+  width: 100vw;
+}
+
+.welcome-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.welcome-header {
+  background-color: rgba(240, 144, 65, 0.329);
+  color: white;
+}
+
+.welcome-title-message {
+  background-image: url('https://images.unsplash.com/photo-1539186607709-a7536abcebeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+  background-repeat: no-repeat;
+  height: 40vh;
+  width: 100vw;
+}
+
+.welcome-body-message {
+  height: 60vh;
+  width: 100vw;
+}
