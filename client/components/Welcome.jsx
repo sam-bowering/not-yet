@@ -1,7 +1,6 @@
 import React from 'react'
 import { Button, Grid } from 'semantic-ui-react'
-
-import List from './List'
+import { Link } from 'react-router-dom'
 
 class Welcome extends React.Component {
   render () {
@@ -26,7 +25,7 @@ class Welcome extends React.Component {
               <Grid.Column>Achieve</Grid.Column>
             </Grid.Row>
             <Grid.Row>
-              <Grid.Column>Jump Back In</Grid.Column>
+              <Grid.Column><Link to='/goals'>Jump Back In</Link></Grid.Column>
             </Grid.Row>
           </Grid>
         </div>
