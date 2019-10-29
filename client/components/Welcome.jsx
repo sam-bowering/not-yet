@@ -17,7 +17,7 @@ class Welcome extends React.Component {
         <div className='welcome-body-message'>
           <Grid columns={3} divided>
             <Grid.Row>
-              <Grid.Column>Create</Grid.Column>
+              <Grid.Column><Link to='/create'>Create</Link></Grid.Column>
               <Grid.Column>Plan</Grid.Column>
               <Grid.Column>Achieve</Grid.Column>
             </Grid.Row>
