@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Welcome from './Welcome'
 import List from './List'
+import Header from './Header'
 
 const App = () => (
   <Router>
-    <Switch>
-      <Route path='/' exact component={Welcome} />
-      <Route path='/goals' exact component={List} />
-    </Switch>
+    <Header />
+    <Route path='/' exact component={Welcome} />
+    <Route path='/goals' exact component={List} />
   </Router>
 )
 
