@@ -2,15 +2,12 @@ import React from 'react'
 import { Button, Grid } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
+import Header from './Header'
+
 class Welcome extends React.Component {
   render () {
     return(
       <div className='welcome-container'>
-        <div className='welcome-header'>
-          <Button color='red'>Sign In</Button>
-          <Button>Sign Out</Button>
-          <Button>Register</Button>
-        </div>
         <div className='welcome-title'>
           <div className='welcome-title-message'>
             <h1>Not Yet?</h1>
