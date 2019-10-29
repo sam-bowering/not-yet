@@ -21,9 +21,12 @@ class Welcome extends React.Component {
         <div className='welcome-body-message'>
           <Grid columns={3} divided>
             <Grid.Row>
-              <Grid.Column>test1</Grid.Column>
-              <Grid.Column>test2</Grid.Column>
-              <Grid.Column>test3</Grid.Column>
+              <Grid.Column>Create</Grid.Column>
+              <Grid.Column>Plan</Grid.Column>
+              <Grid.Column>Achieve</Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column>Jump Back In</Grid.Column>
             </Grid.Row>
           </Grid>
         </div>
