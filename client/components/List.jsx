@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { getList } from '../actions/list'
+
 class List extends React.Component {
   componentDidMount() {
     this.props.getList()
@@ -8,11 +10,19 @@ class List extends React.Component {
 
   render () {
     return(
-      <p>{props.list}</p>
+      <ul>
+        {this.props.list.map(listItem => <li key={listItem.id}>{listItem.name}</li>)}
+      </ul>
     )
   }
 }
   
+const MapStateToProps = state => {
+  return {
+    list: state.list
+  }
+}
+
 const MapDispatchToProps = dispatch => {
   return {
     getList: () => dispatch(getList())
@@ -20,4 +30,4 @@ const MapDispatchToProps = dispatch => {
 }
 
 
-export default connect(null, MapDispatchToProps)(List)
+export default connect(MapStateToProps, MapDispatchToProps)(List)

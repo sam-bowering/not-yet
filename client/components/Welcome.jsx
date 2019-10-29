@@ -1,5 +1,7 @@
 import React from 'react'
 
+import List from './List'
+
 class Welcome extends React.Component {
   render () {
     return(
@@ -13,6 +15,7 @@ class Welcome extends React.Component {
           <h1>Not Yet?</h1>
           <span>Does this sound like you? Jump in and get your 'Not Yet's sorted!</span> 
         </div>
+        <List />
       </>
     )
   }
