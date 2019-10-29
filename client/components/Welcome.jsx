@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'semantic-ui-react'
+import { Button, Grid } from 'semantic-ui-react'
 
 import List from './List'
 
@@ -13,13 +13,20 @@ class Welcome extends React.Component {
           <Button>Register</Button>
         </div>
         <div className='welcome-title'>
-          <div className='welcome-title message'>
+          <div className='welcome-title-message'>
             <h1>Not Yet?</h1>
-            <p>Does this sound like you? Jump in and get your 'Not Yet's sorted!</p>
+            <p>Now's a better time than ever.</p>
           </div>
         </div>
-        <div className='welcome-body-message'></div>
-        {/* <List /> */}
+        <div className='welcome-body-message'>
+          <Grid columns={3} divided>
+            <Grid.Row>
+              <Grid.Column>test1</Grid.Column>
+              <Grid.Column>test2</Grid.Column>
+              <Grid.Column>test3</Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </div>
       </div>
     )
   }
