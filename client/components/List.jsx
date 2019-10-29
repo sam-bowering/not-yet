@@ -11,13 +11,9 @@ class List extends React.Component {
 
   render () {
     return(
-      <div className='list-container'>
-        <ul>
-          {this.props.list.map(listItem => <li key={listItem.id}>{listItem.name}</li>)}
-        </ul>
-        <br/>
-        <Link to='/'>Go Back</Link>
-      </div>
+      <ul>
+        {this.props.list.map(listItem => <li key={listItem.id}>{listItem.name}</li>)}
+      </ul>
     )
   }
 }
