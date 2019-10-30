@@ -1,8 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 
-import { getList } from '../actions/list'
+import { getList } from '../actions/getList'
 
 class List extends React.Component {
   componentDidMount() {
