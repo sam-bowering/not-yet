@@ -1,12 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Form } from 'semantic-ui-react'
 
 import List from './List'
+import {addGoal} from '../actions/addGoal'
 
 class Create extends React.Component {
   state = {
     listIsVisible: false,
-    goalCreateIsVisible: false
+    goalCreateIsVisible: false,
+    title: '',
+    description: ''
   }
 
   handleList = () => {
@@ -33,6 +38,17 @@ class Create extends React.Component {
     }
   }
 
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  handleSubmit = () => {
+    this.props.addGoal({
+      title: this.state.title,
+      description: this.state.description
+    })
+  }
+
   render () {
     return(
       <>
@@ -44,8 +60,14 @@ class Create extends React.Component {
         }
         {this.state.goalCreateIsVisible &&
           <>
-            <input type='input'></input>
+            <Form>
+              <Form.Group width='equal'>
+                <Form.Input placeholder='Title' name='title' onChange={this.handleChange}/>
+              </Form.Group>
+              <Form.TextArea placeholder='Description' name='description' onChange={this.handleChange}/>
+            </Form>
             <button type='button' onClick={this.handleGoal}>Cancel</button>
+            <button type='button' onClick={this.handleSubmit}>Submit</button>
             <br/>
           </>
         }
@@ -65,4 +87,16 @@ class Create extends React.Component {
   }
 }
 
-export default Create
+const mapStateToProps = state => {
+  return {
+    goal: state.addGoal
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addGoal: (goal) => dispatch(addGoal(goal))
+  }
+}    
+
+export default connect(mapStateToProps, mapDispatchToProps)(Create)
