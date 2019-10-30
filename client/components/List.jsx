@@ -1,13 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { getList } from '../actions/getList'
-
 class List extends React.Component {
-  componentDidMount() {
-    this.props.getList()
-  }
-
   render () {
     return(
       <ul>
@@ -19,15 +13,8 @@ class List extends React.Component {
   
 const MapStateToProps = state => {
   return {
-    list: state.list
+    list: state.listReducer.listItems
   }
 }
 
-const MapDispatchToProps = dispatch => {
-  return {
-    getList: () => dispatch(getList())
-  }
-}
-
-
-export default connect(MapStateToProps, MapDispatchToProps)(List)
+export default connect(MapStateToProps, null)(List)
