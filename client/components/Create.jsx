@@ -58,6 +58,10 @@ class Create extends React.Component {
       primary: this.state.primary,
       dependants: this.state.dependants
     })
+    this.setState({
+      title: '',
+      description: ''
+    })
   }
 
   render () {
@@ -73,9 +77,9 @@ class Create extends React.Component {
           <>
             <Form>
               <Form.Group width='equal'>
-                <Form.Input placeholder='Title' name='title' onChange={this.handleChange}/>
+                <Form.Input placeholder='Title' name='title' value={this.state.title} onChange={this.handleChange}/>
               </Form.Group>
-              <Form.TextArea placeholder='Description' name='description' onChange={this.handleChange}/>
+              <Form.TextArea placeholder='Description' name='description' value={this.state.description} onChange={this.handleChange}/>
             </Form>
             <button type='button' onClick={this.handleGoal}>Cancel</button>
             <button type='button' onClick={this.handleSubmit}>Submit</button>
