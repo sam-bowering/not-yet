@@ -4,14 +4,22 @@ import { connect } from 'react-redux'
 import { Form } from 'semantic-ui-react'
 
 import List from './List'
-import {addGoal} from '../actions/addGoal'
+import { addGoal } from '../actions/addGoal'
+import { getList } from '../actions/getList'
 
 class Create extends React.Component {
   state = {
     listIsVisible: false,
     goalCreateIsVisible: false,
     title: '',
-    description: ''
+    description: '',
+    completed: false,
+    primary: true,
+    dependants: 0
+  }
+
+  componentDidMount () {
+    this.props.getList()
   }
 
   handleList = () => {
@@ -45,7 +53,10 @@ class Create extends React.Component {
   handleSubmit = () => {
     this.props.addGoal({
       title: this.state.title,
-      description: this.state.description
+      description: this.state.description,
+      completed: this.state.completed,
+      primary: this.state.primary,
+      dependants: this.state.dependants
     })
   }
 
@@ -95,7 +106,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addGoal: (goal) => dispatch(addGoal(goal))
+    addGoal: (goal) => dispatch(addGoal(goal)),
+    getList: () => dispatch(getList())
   }
 }    
 
