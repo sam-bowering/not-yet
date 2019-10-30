@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux'
 
-import { list, addGoal } from './list'
+import { listReducer, addGoal } from './list'
 
 export default combineReducers({
-  list,
-  addGoal
+  listReducer
 })
