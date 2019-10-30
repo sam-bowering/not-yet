@@ -17,12 +17,12 @@ export function addGoalSuccess (goal) {
 }
 
 export function addGoal (goal) {
-  const { title, description } = goal
+  const { title, description, completed, primary, dependants } = goal
   return dispatch => {
     dispatch(addGoalPending())
-    return postGoal(title, description)
-      .then(goal => {
-        dispatch(addGoalSuccess(goal))
+    return postGoal(title, description, completed, primary, dependants)
+      .then(newGoal => {
+        dispatch(addGoalSuccess(newGoal))
       })
   }
 }
