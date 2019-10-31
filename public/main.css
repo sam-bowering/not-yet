@@ -101,10 +101,65 @@
 }
 
 .list-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.list-container-header {
   background-image: url('https://images.unsplash.com/photo-1484041413168-4489d86c022c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1568&q=80');
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   height: 20vh;
   width: 100vw;
+}
+
+.list-header {
+  text-align: center;
+}
+
+.list-header h1 {
+  color: white;
+  text-shadow: 0px 0px 5px #464646;
+  padding-top: 4vh;
+  font-size: 80px;
+}
+
+.list-goals {
+  height: 80vh;
+  width: 100vw;
+  position: relative;
+}
+
+.list-goal-item {
+  height: 10vh;
+  width: 40vw;
+  padding: 1vh;
+  border-style: solid;
+  border-color: grey;
+  border-width: 2px;
+  margin: 3vw;
+  text-align: center;
+}
+
+.list-goal-item:hover {
+  border-style: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+}
+
+.list-goal-item h1 {
+  position: relative;
+  top: 20%;
+}
+
+.uncompleted-header {
+  float: left;
+  padding: 3vh;
+}
+
+.completed-header {
+  float: right;
+  margin: 0px;
+  padding: 3vh;
 }

@@ -1,17 +1,36 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import List from './List'
+import { getList } from '../actions/getList'
 
-const Goals = () => {
-  return(
-    <>
+class Goals extends React.Component {
+  componentDidMount () {
+    this.props.getList()
+  }
+
+  render () {
+    return(
+      <>
       <div className='list-container'>
-        <List />
+        <div className='list-container-header'>
+            <div className='list-header'>
+              <h1>Goals.</h1>
+            </div>
+        </div>
+        <div className='list-goals'>
+          <List />
+        </div>
       </div>
-      <Link to='/'>Go Back</Link>
-    </>
-  )
+      </>
+    )
+  }
 }
 
-export default Goals
+const MapDispatchToProps = dispatch => {
+  return {
+    getList: () => dispatch(getList())
+  }
+}
+
+export default connect(null, MapDispatchToProps)(Goals)
