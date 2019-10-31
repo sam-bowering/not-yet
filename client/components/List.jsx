@@ -3,23 +3,28 @@ import { connect } from 'react-redux'
 import { Divider } from 'semantic-ui-react'
 
 class List extends React.Component {
-  componentDidMount () {
-    this.state = {
-      list: this.props.list
-    }
-  }
-
   render () {
     return(
       <>
-        {/* {this.props.list.map(listItem => 
-          <div className='list-goal-item'>
-            <h1 key={listItem.id}>{listItem.name}</h1>
+        <div className='uncompleted-goals-container'>
+          <h1 className='uncompleted-container-title'>Uncompleted</h1>
+          <div className='uncompleted-goals-list'>
+            {this.props.list.map(listItem => 
+            <div className='list-goal-item'>
+              <h1 key={listItem.id}>{listItem.name}</h1>
+            </div>
+            )}
           </div>
-        )} */}
-        <h1 className='uncompleted-header'>Uncompleted</h1>
-        <Divider vertical>NOT YET?</Divider>
-        <h1 className='completed-header'>Completed</h1>
+        </div>
+        <div className='horizontal-divider'>
+          <Divider />
+        </div>
+        <div className='completed-goals-container'>
+          <h1>Completed</h1>
+          <div className='completed-goals-list'>
+
+          </div>
+        </div>
       </>
     )
   }

@@ -132,34 +132,42 @@
 }
 
 .list-goal-item {
-  height: 10vh;
-  width: 40vw;
-  padding: 1vh;
-  border-style: solid;
-  border-color: grey;
-  border-width: 2px;
-  margin: 3vw;
-  text-align: center;
+  width: 95vw;
+  position: relative;
+  left: 2.5vw;
+  padding: 1vh 0vh 1vh 0vh;
+  color: rgba(47, 53, 66,1.0);
+  transition: 0.3s;
 }
 
 .list-goal-item:hover {
-  border-style: none;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: white;
+  cursor: pointer;
+  color: rgba(255, 71, 87,1.0);
 }
 
-.list-goal-item h1 {
+.uncompleted-goals-container {
+  text-align: center;
+  width: 100vw;
+}
+
+.uncompleted-container-title {
+  color: rgba(116, 125, 140,1.0);
+  padding: 3vh 0vh 1vh 0vh;
+}
+
+.horizontal-divider {
+  width: 95vw;
   position: relative;
-  top: 20%;
+  left: 2.5vw;
+  padding: 1vh 0vh 1vh 0vh
 }
 
-.uncompleted-header {
-  float: left;
-  padding: 3vh;
+.completed-goals-container {
+  text-align: center;
+  width: 100vw;
 }
 
-.completed-header {
-  float: right;
-  margin: 0px;
-  padding: 3vh;
+.completed-goals-container h1 {
+  color: rgba(116, 125, 140,1.0);
+  padding: 3vh 0vh 1vh 0vh
 }
