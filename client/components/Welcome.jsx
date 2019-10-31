@@ -2,8 +2,6 @@ import React from 'react'
 import { Grid } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
-import Header from './Header'
-
 class Welcome extends React.Component {
   render () {
     return(
@@ -22,8 +20,8 @@ class Welcome extends React.Component {
           <Grid columns={3} divided>
             <Grid.Row>
               <Grid.Column><Link to='/create'><h1 style={{color: 'rgba(6, 82, 221,1.0)'}}>Create</h1></Link></Grid.Column>
-              <Grid.Column><h1 style={{color: 'rgba(238, 90, 36,1.0)'}}>Plan</h1></Grid.Column>
-              <Grid.Column><h1 style={{color: 'rgba(0, 148, 50,1.0)'}}>Achieve</h1></Grid.Column>
+              <Grid.Column><Link to='/#'><h1 style={{color: 'rgba(238, 90, 36,1.0)'}}>Plan</h1></Link></Grid.Column>
+              <Grid.Column><Link to='/#'><h1 style={{color: 'rgba(0, 148, 50,1.0)'}}>Achieve</h1></Link></Grid.Column>
             </Grid.Row>
           </Grid>
         </div>
