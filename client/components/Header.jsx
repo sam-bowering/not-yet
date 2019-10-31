@@ -1,12 +1,15 @@
 import React from 'react'
-import { Button } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return(
     <div className='header-container'>
-      <Button color='red'>Sign In</Button>
-      <Button>Sign Out</Button>
-      <Button>Register</Button>
+      <div className='header-container-text-left'>
+        <span><Link to='/' style={{color: 'white'}}>Home</Link></span>
+      </div>
+      <div className='header-container-text-right'>
+        <span>Register</span>
+      </div>
     </div>
   )
 }
