@@ -8,21 +8,16 @@
 }
 
 .header-container {
-  background-color: white;
   color: white;
-  position: -webkit-sticky;
-  position: sticky;
+  position: absolute;
   top: 0;
   height: 5vh;
   width: 100vw;
-  z-index: 1;
 }
 
 .welcome-container {
-  height: 95vh;
+  height: 100vh;
   width: 100vw;
-  position: relative;
-  z-index: 0;
 }
 
 .welcome-title {
@@ -30,7 +25,7 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  height: 60vh;
+  height: 90vh;
   width: 100vw;
   text-align: center;
 }
@@ -38,7 +33,7 @@
 .welcome-title-message {
   color: white;
   position: relative;
-  top: 20vh;
+  top: 25vh;
 }
 
 .welcome-title-message h1 {
@@ -46,9 +41,29 @@
   text-shadow: 0px 0px 5px #464646;
 }
 
+.welcome-title button {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 20px 75px 20px 75px;
+  margin: 5px;
+  position: relative;
+  top: 30vh;
+  font-size: 30px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.welcome-title button:hover {
+  background-color: rgba(223, 91, 51, 0.747);
+}
+
 .welcome-body-message {
   height: 40vh;
   width: 100vw;
+}
+
+.welcome-body-message h1 {
+  padding: 3vh 12vw 3vh 12vw;
 }
 
 .list-container {
