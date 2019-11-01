@@ -131,7 +131,7 @@
   position: relative;
 }
 
-.list-goal-item {
+.list-goal-item-uncompleted {
   width: 95vw;
   position: relative;
   left: 2.5vw;
@@ -140,7 +140,7 @@
   transition: 0.3s;
 }
 
-.list-goal-item:hover {
+.list-goal-item-uncompleted:hover {
   cursor: pointer;
   color: rgba(255, 71, 87,1.0);
 }
@@ -167,7 +167,73 @@
   width: 100vw;
 }
 
-.completed-goals-container h1 {
+.completed-container-title {
   color: rgba(116, 125, 140,1.0);
-  padding: 3vh 0vh 1vh 0vh
+  padding: 3vh 0vh 1vh 0vh;
+}
+
+.list-goal-item-completed {
+  width: 95vw;
+  position: relative;
+  left: 2.5vw;
+  padding: 1vh 0vh 1vh 0vh;
+  color: rgba(47, 53, 66,1.0);
+  transition: 0.3s;
+}
+
+.list-goal-item-completed:hover {
+  cursor: pointer;
+  color: rgba(46, 213, 115,1.0);
+}
+
+.create-container {
+  height: 95vh;
+  width: 100vw;
+}
+
+.create-container-header {
+  background-image: url('https://images.unsplash.com/photo-1484041413168-4489d86c022c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1568&q=80');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+  height: 20vh;
+  width: 100vw;
+}
+
+.create-header h1 {
+  color: white;
+  text-shadow: 0px 0px 5px #464646;
+  padding-top: 4vh;
+  font-size: 80px;
+  display: inline-block;
+  position: absolute;
+}
+
+.create-body-container {
+  position: relative;
+  height: 80vh;
+  width: 100vw;
+}
+
+.create-form-container {
+  width: 35vw;
+  position: relative;
+  left: 5vw;
+  display: inline-block;  
+}
+
+.create-form-title {
+  padding: 5vh 0vw 2vh 5vw
+}
+
+.current-goals-container {
+  float: right;
+  position: relative;
+  padding-right: 5vw;
+  bottom: 7vh;
+}
+
+.current-goals-title {
+
 }
