@@ -8,8 +8,12 @@ const listState = {
 export function listReducer (state = listState, action) {
   switch (action.type) {
     case GET_LIST_SUCCESS:
+      const uncompletedList = action.list.filter(listItem => listItem.completed === 0 || listItem.completed === false)
+      const completedList = action.list.filter(listItem => listItem.completed === 1 || listItem.completed === true)
       return {
-        listItems: [...action.list]
+        listItems: [...action.list],
+        uncompletedList,
+        completedList
       }
     case ADD_GOAL_SUCCESS:
       return {
