@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Form } from 'semantic-ui-react'
+import { Form, Divider, Button } from 'semantic-ui-react'
 
 import List from './List'
+import GoalsList from './GoalsList'
 import { addGoal } from '../actions/addGoal'
 import { getList } from '../actions/getList'
 
@@ -16,34 +16,6 @@ class Create extends React.Component {
     completed: false,
     primary: true,
     dependants: 0
-  }
-
-  componentDidMount () {
-    this.props.getList()
-  }
-
-  handleList = () => {
-    if (this.state.listIsVisible) {
-      this.setState({
-        listIsVisible: false
-      })
-    } else {
-      this.setState({
-        listIsVisible: true
-      })
-    }
-  }
-
-  handleGoal = () => {
-    if (this.state.goalCreateIsVisible) {
-      this.setState({
-        goalCreateIsVisible: false
-      })
-    } else {
-      this.setState({
-        goalCreateIsVisible: true
-      })
-    }
   }
 
   handleChange = (e) => {
@@ -66,38 +38,30 @@ class Create extends React.Component {
 
   render () {
     return(
-      <>
-        {!this.state.goalCreateIsVisible &&
-          <>
-            <button type='button' onClick={this.handleGoal}>Add a new Goal</button>
-            <br/>
-          </>
-        }
-        {this.state.goalCreateIsVisible &&
-          <>
-            <Form>
-              <Form.Group width='equal'>
+      <div className='create-container'>
+        <div className='create-container-header'>
+          <div className='create-header'>
+            <h1>Create.</h1>
+          </div>
+        </div>
+        <div className='create-body-container'>
+          <h1 className='create-form-title'>New Goal</h1>
+          <div className='create-form-container'>
+            <Form size='big' className='create-form'>
+              <Form.Group widths='equal'>
                 <Form.Input placeholder='Title' name='title' value={this.state.title} onChange={this.handleChange}/>
               </Form.Group>
               <Form.TextArea placeholder='Description' name='description' value={this.state.description} onChange={this.handleChange}/>
             </Form>
-            <button type='button' onClick={this.handleGoal}>Cancel</button>
-            <button type='button' onClick={this.handleSubmit}>Submit</button>
-            <br/>
-          </>
-        }
-        {!this.state.listIsVisible &&
-          <button type='button' onClick={this.handleList}>Show List</button>
-        }
-        {this.state.listIsVisible &&
-          <>
-            <button type='button' onClick={this.handleList}>Hide List</button>
-            <List />
-          </>
-        }
-        <br/>
-        <Link to='/'>Go Back</Link>
-      </>
+            <Button type='button' style={{marginTop: '2vh'}} onClick={this.handleSubmit}>Submit</Button>
+          </div>
+          <Divider vertical style={{height: '35vh'}}>OR</Divider>
+          <div className='current-goals-container'>
+            <h1 className='current-goals-title'>Current Goals</h1>
+            <GoalsList />
+          </div>
+        </div>
+      </div>
     )
   }
 }
@@ -111,7 +75,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     addGoal: (goal) => dispatch(addGoal(goal)),
-    getList: () => dispatch(getList())
   }
 }    
 
