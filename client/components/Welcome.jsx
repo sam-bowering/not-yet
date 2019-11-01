@@ -1,8 +1,15 @@
 import React from 'react'
 import { Grid } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+
+import { getList } from '../actions/getList'
 
 class Welcome extends React.Component {
+  componentDidMount () {
+    this.props.getList()
+  }
+
   render () {
     return(
       <div className='welcome-container'>
@@ -30,4 +37,10 @@ class Welcome extends React.Component {
   }
 }
 
-export default Welcome
+const MapDispatchToProps = dispatch => {
+  return {
+    getList: () => dispatch(getList())
+  }
+}
+
+export default connect(null, MapDispatchToProps)(Welcome)
