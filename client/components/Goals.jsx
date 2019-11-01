@@ -5,10 +5,6 @@ import List from './List'
 import { getList } from '../actions/getList'
 
 class Goals extends React.Component {
-  componentDidMount () {
-    this.props.getList()
-  }
-
   render () {
     return(
       <>
