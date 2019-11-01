@@ -9,8 +9,8 @@ class List extends React.Component {
         <div className='uncompleted-goals-container'>
           <h1 className='uncompleted-container-title'>Uncompleted</h1>
           <div className='uncompleted-goals-list'>
-            {this.props.list.map(listItem => 
-            <div className='list-goal-item'>
+            {this.props.uncompletedGoals.map(listItem => 
+            <div className='list-goal-item-uncompleted'>
               <h1 key={listItem.id}>{listItem.name}</h1>
             </div>
             )}
@@ -20,9 +20,13 @@ class List extends React.Component {
           <Divider />
         </div>
         <div className='completed-goals-container'>
-          <h1>Completed</h1>
+          <h1 className='completed-container-title'>Completed</h1>
           <div className='completed-goals-list'>
-
+            {this.props.completedGoals.map(listItem => 
+              <div className='list-goal-item-completed'>
+                <h1 key={listItem.id}>{listItem.name}</h1>
+              </div>
+              )}
           </div>
         </div>
       </>
@@ -32,7 +36,9 @@ class List extends React.Component {
   
 const MapStateToProps = state => {
   return {
-    list: state.listReducer.listItems
+    list: state.listReducer.listItems,
+    uncompletedGoals: state.listReducer.uncompletedList,
+    completedGoals: state.listReducer.completedList
   }
 }
 
