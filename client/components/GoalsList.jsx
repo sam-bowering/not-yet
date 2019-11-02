@@ -1,5 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+
+import { getSelectedGoal } from '../actions/getSelectedGoal'
+
+function handleClick (props, id) {
+  props.selectedGoal(id)
+}
 
 const GoalsList = (props) => {
   return(
@@ -8,7 +15,7 @@ const GoalsList = (props) => {
         {props.currentGoals.map(goal =>
         <li>
           <div className='current-goal-item'>
-            <h1 key={goal.id} className='current-goal-item-title'>{goal.name}</h1>
+            <Link to={`/goal/${goal.id}`} onClick={() => handleClick(props, goal.id)}><h1 key={goal.id} className='current-goal-item-title'>{goal.name}</h1></Link>
           </div>
         </li>
         )}
@@ -23,4 +30,10 @@ const MapStateToProps = state => {
   }
 }
 
-export default connect(MapStateToProps, null)(GoalsList)
+const MapDispatchToProps = dispatch => {
+  return {
+    selectedGoal: name => dispatch(getSelectedGoal(name))
+  }
+}
+
+export default connect(MapStateToProps, MapDispatchToProps)(GoalsList)
