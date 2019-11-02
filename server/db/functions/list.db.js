@@ -15,8 +15,15 @@ function getGoalByName (name, db = connection) {
     .first()
 }
 
+function getGoalById (id, db = connection) {
+  return db('list')
+    .where('id', id)
+    .first()
+}
+
 module.exports = {
   getList,
   addGoal,
-  getGoalByName
+  getGoalByName,
+  getGoalById
 }
