@@ -23,12 +23,6 @@
   left: 5vw;
 }
 
-.header-container-text-left:hover {
-  border-bottom-style: solid;
-  border-color: white;
-  border-width: 1px;
-}
-
 .header-container-text-right {
   float: right;
   position: relative;
@@ -42,11 +36,33 @@
   border-width: 1px;
 }
 
-.header-container span {
+.header-nav-title {
   background-color: rgba(0, 0, 0, 0);
   color: white;
   cursor: pointer;
-  transition: 3s;
+}
+
+.header-nav-title:hover {
+  border-bottom-style: solid;
+  border-color: white;
+  border-width: 1px;
+}
+
+.header-nav-divider {
+  padding-left: 1vw;
+}
+
+.header-nav-label {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  cursor: pointer;
+  margin-left: 1vw;
+}
+
+.header-nav-label:hover {
+  border-bottom-style: solid;
+  border-color: white;
+  border-width: 1px;
 }
 
 .welcome-container {
@@ -207,7 +223,6 @@
   padding-top: 4vh;
   font-size: 80px;
   display: inline-block;
-  position: absolute;
 }
 
 .create-body-container {
@@ -232,8 +247,30 @@
   position: relative;
   padding-right: 5vw;
   bottom: 7vh;
+  height: 60vh;
 }
 
 .current-goals-title {
+  padding: 0vh 0vw 0vh 13vw;
+  position: relative;
+  left: 2vw;
+}
 
+.current-goal-item {
+  color: rgba(116, 125, 140,1.0);
+  transition: 0.3s;
+  position: relative;
+  left: 3vw;
+  text-align: right;
+}
+
+.current-goal-item-title {
+  padding: 1vh 3vw;
+}
+
+.current-goal-item-title:hover {
+  color: white;
+  cursor: pointer;
+  background-color: #1e90ff;
+  border-radius: 15px;
 }
