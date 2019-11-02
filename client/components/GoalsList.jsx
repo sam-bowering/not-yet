@@ -4,8 +4,10 @@ import { connect } from 'react-redux'
 const GoalsList = (props) => {
   return(
     <>
-      {props.currentGoals.map(goal => 
-        <h1 key={goal.id}>{goal.name}</h1>  
+      {props.currentGoals.map(goal =>
+      <div className='current-goal-item'>
+        <h1 key={goal.id} className='current-goal-item-title'>{goal.name}</h1>
+      </div>
       )}
     </>
   )
