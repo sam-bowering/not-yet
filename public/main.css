@@ -248,6 +248,7 @@
   padding-right: 5vw;
   bottom: 7vh;
   height: 60vh;
+  overflow-y: scroll;
 }
 
 .current-goals-title {
@@ -274,9 +275,12 @@
   cursor: pointer;
   background-color: #1e90ff;
   border-radius: 15px;
+  transition: 1s;
 }
 
 ul {
   direction: rtl;
   list-style-type: none;
+  position: relative;
+  left: 2vw;
 }
