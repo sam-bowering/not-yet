@@ -1,5 +1,6 @@
 import { GET_LIST_SUCCESS } from '../actions/getList'
 import { ADD_GOAL_SUCCESS } from '../actions/addGoal'
+import { GET_SELECTEDGOAL_SUCCESS } from '../actions/getSelectedGoal'
 
 const listState = {
   listItems: []
@@ -19,6 +20,12 @@ export function listReducer (state = listState, action) {
       return {
         listItems: [...state.listItems, action.goal],
         uncompletedList: [...state.uncompletedList, action.goal]
+      }
+    case GET_SELECTEDGOAL_SUCCESS:
+      return {
+        listItems: [...state.listItems],
+        uncompletedList: [...state.uncompletedList],
+        selectedGoal: action.selectedGoal
       }
     default:
       return state
