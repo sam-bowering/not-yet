@@ -17,7 +17,8 @@ export function listReducer (state = listState, action) {
       }
     case ADD_GOAL_SUCCESS:
       return {
-        listItems: [...state.listItems, action.goal]
+        listItems: [...state.listItems, action.goal],
+        uncompletedList: [...state.uncompletedList, action.goal]
       }
     default:
       return state
