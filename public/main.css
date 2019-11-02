@@ -258,16 +258,20 @@
 }
 
 .current-goal-item {
-  color: rgba(116, 125, 140,1.0);
   transition: 0.3s;
   position: relative;
   left: 3vw;
   text-align: right;
 }
 
+.current-goal-item a {
+  color: rgba(116, 125, 140,1.0) !important;
+}
+
 .current-goal-item-title {
   padding: 1vh 1vw;
   width: fit-content;
+  color: inherit;
 }
 
 .current-goal-item-title:hover {
@@ -283,4 +287,27 @@ ul {
   list-style-type: none;
   position: relative;
   left: 2vw;
+}
+
+.selected-goal-container {
+  height: 95vh;
+  width: 100vw;
+}
+
+.selected-goal-container-header {
+  background-image: url('https://images.unsplash.com/photo-1484041413168-4489d86c022c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1568&q=80');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+  height: 20vh;
+  width: 100vw;
+}
+
+.selected-goal-header h1 {
+  color: white;
+  text-shadow: 0px 0px 5px #464646;
+  padding-top: 4vh;
+  font-size: 80px;
+  display: inline-block;
 }
