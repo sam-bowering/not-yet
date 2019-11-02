@@ -2,10 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Form, Divider, Button } from 'semantic-ui-react'
 
-import List from './List'
 import GoalsList from './GoalsList'
 import { addGoal } from '../actions/addGoal'
-import { getList } from '../actions/getList'
 
 class Create extends React.Component {
   state = {
@@ -73,16 +71,10 @@ class Create extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    goal: state.addGoal
-  }
-}
-
 const mapDispatchToProps = dispatch => {
   return {
     addGoal: (goal) => dispatch(addGoal(goal)),
   }
 }    
 
-export default connect(mapStateToProps, mapDispatchToProps)(Create)
+export default connect(null, mapDispatchToProps)(Create)
