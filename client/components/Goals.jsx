@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 import List from './List'
 import { getList } from '../actions/getList'
 
-class Goals extends React.Component {
-  render () {
+const Goals = () => {
     return(
       <>
       <div className='list-container'>
@@ -20,7 +19,6 @@ class Goals extends React.Component {
       </div>
       </>
     )
-  }
 }
 
 const MapDispatchToProps = dispatch => {
