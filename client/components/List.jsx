@@ -2,14 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Divider } from 'semantic-ui-react'
 
-class List extends React.Component {
-  render () {
+const List = props => {
     return(
       <>
         <div className='uncompleted-goals-container'>
           <h1 className='uncompleted-container-title'>Uncompleted</h1>
           <div className='uncompleted-goals-list'>
-            {this.props.uncompletedGoals.map(listItem => 
+            {props.uncompletedGoals.map(listItem => 
             <div className='list-goal-item-uncompleted'>
               <h1 key={listItem.id}>{listItem.name}</h1>
             </div>
@@ -22,7 +21,7 @@ class List extends React.Component {
         <div className='completed-goals-container'>
           <h1 className='completed-container-title'>Completed</h1>
           <div className='completed-goals-list'>
-            {this.props.completedGoals.map(listItem => 
+            {props.completedGoals.map(listItem => 
               <div className='list-goal-item-completed'>
                 <h1 key={listItem.id}>{listItem.name}</h1>
               </div>
@@ -31,7 +30,6 @@ class List extends React.Component {
         </div>
       </>
     )
-  }
 }
   
 const MapStateToProps = state => {
