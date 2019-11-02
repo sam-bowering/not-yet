@@ -22,6 +22,13 @@ class Create extends React.Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
+  handleEnter = (e) => {
+    if (e.keyCode === 13) {
+      e.preventDefault()
+      this.handleSubmit()
+    }
+  }
+
   handleSubmit = () => {
     this.props.addGoal({
       title: this.state.title,
@@ -38,7 +45,7 @@ class Create extends React.Component {
 
   render () {
     return(
-      <div className='create-container'>
+      <div className='create-container' onKeyDown={this.handleEnter}>
         <div className='create-container-header'>
           <div className='create-header'>
             <h1>Create.</h1>
