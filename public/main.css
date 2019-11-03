@@ -175,6 +175,18 @@
   transition: 0.3s !important;
 }
 
+.list-item-controls button {
+  border-style: none;
+  padding: 1vh;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 15px;
+}
+
+.list-item-controls button:hover {
+  background-color: rgba(241, 242, 246,1.0);
+}
+
 .horizontal-divider {
   width: 95vw;
   position: relative;
