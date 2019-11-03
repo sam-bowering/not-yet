@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Divider } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 const List = props => {
     return(
@@ -10,7 +11,9 @@ const List = props => {
           <div className='uncompleted-goals-list'>
             {props.uncompletedGoals.map(listItem => 
             <div className='list-goal-item-uncompleted'>
-              <h1 key={listItem.id}>{listItem.name}</h1>
+              <Link to={`/goal/${listItem.id}`}>
+                <h1 className='uncompleted-goal-title'key={listItem.id}>{listItem.name}</h1>
+              </Link>
             </div>
             )}
           </div>
@@ -23,7 +26,9 @@ const List = props => {
           <div className='completed-goals-list'>
             {props.completedGoals.map(listItem => 
               <div className='list-goal-item-completed'>
-                <h1 key={listItem.id}>{listItem.name}</h1>
+                <Link to={`/goal/${listItem.id}`}>
+                  <h1 className='completed-goal-title' key={listItem.id}>{listItem.name}</h1>
+                </Link>
               </div>
               )}
           </div>
