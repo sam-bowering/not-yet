@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 
-import { listReducer } from './list'
+import { lists } from './list'
 import { navigation } from './navigation'
 
 export default combineReducers({
-  listReducer,
+  lists,
   navigation
 })
