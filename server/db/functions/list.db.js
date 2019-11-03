@@ -21,9 +21,16 @@ function getGoalById (id, db = connection) {
     .first()
 }
 
+function deleteGoalById (id, db = connection) {
+  return db('list')
+    .where('id', id)
+    .del()
+}
+
 module.exports = {
   getList,
   addGoal,
   getGoalByName,
-  getGoalById
+  getGoalById,
+  deleteGoalById
 }
