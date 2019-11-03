@@ -4,10 +4,6 @@ import { Link } from 'react-router-dom'
 
 import { getSelectedGoal } from '../actions/getSelectedGoal'
 
-function handleClick (props, id) {
-  props.selectedGoal(id)
-}
-
 const GoalsList = (props) => {
   return(
     <>
@@ -15,7 +11,7 @@ const GoalsList = (props) => {
         {props.currentGoals.map(goal =>
         <li>
           <div className='current-goal-item'>
-            <Link to={`/goal/${goal.id}`} onClick={() => handleClick(props, goal.id)}>
+            <Link to={`/goal/${goal.id}`}>
               <h1 key={goal.id} className='current-goal-item-title'>{goal.name}</h1>
             </Link>
           </div>
@@ -32,10 +28,4 @@ const MapStateToProps = state => {
   }
 }
 
-const MapDispatchToProps = dispatch => {
-  return {
-    selectedGoal: name => dispatch(getSelectedGoal(name))
-  }
-}
-
-export default connect(MapStateToProps, MapDispatchToProps)(GoalsList)
+export default connect(MapStateToProps, null)(GoalsList)
