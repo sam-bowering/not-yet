@@ -43,6 +43,8 @@ router.delete('/goals', (req, res) => {
 
   db.deleteGoalById(id)
     .then(res.status(200))
+    .then(db.getList()
+      .then(list => res.json(list)))
 })
 
 module.exports = router
