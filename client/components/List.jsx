@@ -3,7 +3,15 @@ import { connect } from 'react-redux'
 import { Divider } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
+import { deleteGoal } from '../actions/deleteGoal'
+import { getList } from '../actions/getList'
+
 class List extends React.Component {
+  handleDelete = (id) => {
+    this.props.deleteGoal(id)
+      .then(this.props.getList())
+  }
+
   render () {
     return(
       <>
@@ -16,7 +24,7 @@ class List extends React.Component {
                 <h1 className='uncompleted-goal-title'key={listItem.id}>{listItem.name}</h1>
               </Link>
               <div className='list-item-controls'>
-                <button type='button'>Delete</button>
+                <button type='button' onClick={() => this.handleDelete(listItem.id)}>Delete</button>
                 <button type='button'>View</button>
                 <button type='button'>Complete</button>
               </div>
@@ -52,4 +60,11 @@ const MapStateToProps = state => {
   }
 }
 
-export default connect(MapStateToProps, null)(List)
+const MapDispatchToProps = dispatch => {
+  return {
+    deleteGoal: id => dispatch(deleteGoal(id)),
+    getList: () => dispatch(getList())
+  }
+}
+
+export default connect(MapStateToProps, MapDispatchToProps)(List)
