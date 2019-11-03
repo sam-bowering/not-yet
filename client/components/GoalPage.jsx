@@ -43,7 +43,7 @@ class GoalPage extends React.Component {
 
 const MapStateToProps = state => {
   return {
-    selectedGoal: state.list.selectedGoal,
+    selectedGoal: state.lists.selectedGoal,
     isLoading: state.navigation.isLoading
   }
 }
