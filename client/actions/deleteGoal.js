@@ -1,5 +1,4 @@
 import { removeGoal } from '../api/removeGoal'
-import { GET_LIST_SUCCESS } from './getList';
 
 export const DELETE_GOAL_PENDING = 'DELETE_GOAL_PENDING'
 export const DELETE_GOAL_SUCCESS = 'DELETE_GOAL_SUCCESS'
@@ -10,9 +9,10 @@ export function deleteGoalPending () {
   }
 }
 
-export function deleteGoalSuccess () {
+export function deleteGoalSuccess (list) {
   return {
-    type: GET_LIST_SUCCESS,
+    type: DELETE_GOAL_SUCCESS,
+    list
   }
 }
 
@@ -20,8 +20,8 @@ export function deleteGoal (goalId) {
   return dispatch => {
     dispatch(deleteGoalPending())
     return removeGoal(goalId)
-      .then(() => {
-        dispatch(deleteGoalSuccess())
+      .then(updatedList => {
+        dispatch(deleteGoalSuccess(updatedList))
       })
   }
 }
