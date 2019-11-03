@@ -9,7 +9,6 @@ import { getList } from '../actions/getList'
 class List extends React.Component {
   handleDelete = (id) => {
     this.props.deleteGoal(id)
-      .then(this.props.getList())
   }
 
   render () {
@@ -54,16 +53,15 @@ class List extends React.Component {
   
 const MapStateToProps = state => {
   return {
-    list: state.listReducer.listItems,
-    uncompletedGoals: state.listReducer.uncompletedList,
-    completedGoals: state.listReducer.completedList
+    list: state.lists.fullList,
+    uncompletedGoals: state.lists.uncompletedList,
+    completedGoals: state.lists.completedList
   }
 }
 
 const MapDispatchToProps = dispatch => {
   return {
     deleteGoal: id => dispatch(deleteGoal(id)),
-    getList: () => dispatch(getList())
   }
 }
 
