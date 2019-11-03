@@ -4,7 +4,6 @@ import { Divider } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 import { deleteGoal } from '../actions/deleteGoal'
-import { getList } from '../actions/getList'
 
 class List extends React.Component {
   handleDelete = (id) => {
@@ -23,9 +22,9 @@ class List extends React.Component {
                 <h1 className='uncompleted-goal-title'key={listItem.id}>{listItem.name}</h1>
               </Link>
               <div className='list-item-controls'>
-                <button type='button' onClick={() => this.handleDelete(listItem.id)}>Delete</button>
-                <button type='button'>View</button>
-                <button type='button'>Complete</button>
+                <button type='button' onClick={() => this.handleDelete(listItem.id)}>❌</button>
+                <button type='button'><Link to={`/goal/${listItem.id}`}>🔎</Link></button>
+                <button type='button'>✔️</button>
               </div>
             </div>
             )}
