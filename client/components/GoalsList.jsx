@@ -22,7 +22,7 @@ const GoalsList = (props) => {
 
 const MapStateToProps = state => {
   return {
-    currentGoals: state.listReducer.uncompletedList
+    currentGoals: state.lists.uncompletedList
   }
 }
 
