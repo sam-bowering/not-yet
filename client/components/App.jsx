@@ -5,7 +5,7 @@ import Welcome from './Welcome'
 import Goals from './Goals'
 import Header from './Header'
 import Create from './Create'
-import SelectedGoal from './SelectedGoal'
+import GoalPage from './GoalPage'
 
 const App = () => (
   <Router>
@@ -13,7 +13,7 @@ const App = () => (
     <Route path='/' exact component={Welcome} />
     <Route path='/goals' exact component={Goals} />
     <Route path='/create' exact component={Create} />
-    <Route path='/goal/:selectedGoal' exact component={SelectedGoal}/>
+    <Route path='/goal/:selectedGoal' exact component={GoalPage}/>
   </Router>
 )
 
