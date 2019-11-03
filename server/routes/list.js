@@ -38,4 +38,11 @@ router.get('/goal/:selectedGoal', (req, res) => {
     .then(res.status(200))
 })
 
+router.delete('/goals', (req, res) => {
+  const { id } = req.body
+
+  db.deleteGoalById(id)
+    .then(res.status(200))
+})
+
 module.exports = router
