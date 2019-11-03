@@ -23,7 +23,6 @@ class List extends React.Component {
               </Link>
               <div className='list-item-controls'>
                 <button type='button' onClick={() => this.handleDelete(listItem.id)}>❌</button>
-                <button type='button'><Link to={`/goal/${listItem.id}`}>🔎</Link></button>
                 <button type='button'>✔️</button>
               </div>
             </div>
