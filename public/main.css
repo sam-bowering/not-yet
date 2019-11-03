@@ -153,12 +153,6 @@
   left: 2.5vw;
   padding: 1vh 0vh 1vh 0vh;
   color: rgba(47, 53, 66,1.0);
-  transition: 0.3s;
-}
-
-.list-goal-item-uncompleted:hover {
-  cursor: pointer;
-  color: rgba(255, 71, 87,1.0);
 }
 
 .uncompleted-goals-container {
@@ -166,9 +160,19 @@
   width: 100vw;
 }
 
+.uncompleted-goals-container a {
+  color: rgba(47, 53, 66,1.0) !important;
+}
+
 .uncompleted-container-title {
-  color: rgba(116, 125, 140,1.0);
+  color: rgba(116, 125, 140, 1.00);
   padding: 3vh 0vh 1vh 0vh;
+}
+
+.uncompleted-goal-title:hover {
+  cursor: pointer;
+  color: rgba(255, 71, 87,1.0);
+  transition: 0.3s !important;
 }
 
 .horizontal-divider {
@@ -183,23 +187,19 @@
   width: 100vw;
 }
 
+.completed-goals-container a {
+  color: rgba(47, 53, 66,1.0) !important;
+}
+
 .completed-container-title {
-  color: rgba(116, 125, 140,1.0);
+  color: rgba(116, 125, 140, 1.00);
   padding: 3vh 0vh 1vh 0vh;
 }
 
-.list-goal-item-completed {
-  width: 95vw;
-  position: relative;
-  left: 2.5vw;
-  padding: 1vh 0vh 1vh 0vh;
-  color: rgba(47, 53, 66,1.0);
-  transition: 0.3s;
-}
-
-.list-goal-item-completed:hover {
+.completed-goal-title:hover {
   cursor: pointer;
-  color: rgba(46, 213, 115,1.0);
+  color: rgba(46, 213, 115,1.0);  
+  transition: 0.3s !important;
 }
 
 .create-container {
