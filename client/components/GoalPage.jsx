@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { getSelectedGoal } from '../actions/getSelectedGoal'
 import { getTasksBySelectedGoal } from '../actions/getTasksBySelectedGoal'
 import Loading from './Loading'
-import TaskList from './TaskList'
 
 class GoalPage extends React.Component {
   componentDidMount () {
@@ -56,7 +55,6 @@ class GoalPage extends React.Component {
                       )}
                     </ul>
                   }
-                  {/* <TaskList /> */}
                 </div>
               </div>
             </div>
