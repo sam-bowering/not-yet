@@ -2,7 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { getSelectedGoal } from '../actions/getSelectedGoal'
+import { getTasksBySelectedGoal } from '../actions/getTasksBySelectedGoal'
 import Loading from './Loading'
+import TaskList from './TaskList'
 
 class GoalPage extends React.Component {
   componentDidMount () {
@@ -14,10 +16,17 @@ class GoalPage extends React.Component {
           description: this.props.selectedGoal.description
         })
       })
+    this.props.getTasksBySelectedGoal(goalId)
+      .then(() => {
+        this.setState({
+          tasks: [...this.props.tasks]
+        })
+      })
   }
 
   state = {
-    title: 'sldgjdflg'
+    title: 'sldgjdflg',
+    tasks: []
   }
 
   render () {
@@ -38,6 +47,16 @@ class GoalPage extends React.Component {
                 <div className='selectedGoal-description'>
                   <h1>Description:</h1>
                   <p>{this.state.description}</p>
+                  <h1>Required Tasks:</h1>
+                  {this.props.tasksLoading && <Loading />}
+                  {!this.props.tasksLoading &&
+                    <>
+                    {this.state.tasks.map(task =>
+                      <h1 key={task.id}>{task.name}</h1>
+                    )}
+                    </>
+                  }
+                  {/* <TaskList /> */}
                 </div>
               </div>
             </div>
@@ -51,13 +70,16 @@ class GoalPage extends React.Component {
 const MapStateToProps = state => {
   return {
     selectedGoal: state.lists.selectedGoal,
-    isLoading: state.navigation.isLoading
+    isLoading: state.navigation.isLoading,
+    tasksLoading: state.navigation.tasksLoading,
+    tasks: state.tasks.goalTasks
   }
 }
 
 const MapDispatchToProps = dispatch => {
   return {
-    getSelectedGoal: id => dispatch(getSelectedGoal(id))
+    getSelectedGoal: id => dispatch(getSelectedGoal(id)),
+    getTasksBySelectedGoal: id => dispatch(getTasksBySelectedGoal(id))
   }
 }
 
