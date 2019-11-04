@@ -328,3 +328,20 @@ ul {
   height: 95vh;
   width: 100vw;
 }
+
+.selectedGoal-container-body {
+
+}
+
+.selectedGoal-description {
+  margin: 5vh 0vw 0vh 20vw;
+  width: 60vw;
+  transition: 0.3s;
+  padding: 10px;
+}
+
+.selectedGoal-description:hover {
+  background-color: rgba(170, 166, 157,1.0);
+  color: white;
+  border-radius: 15px;
+}
