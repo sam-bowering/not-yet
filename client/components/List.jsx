@@ -11,7 +11,7 @@ class List extends React.Component {
     this.props.deleteGoal(id)
   }
 
-  handleComplete = (id) => {
+  handleCompletion = (id) => {
     this.props.completeGoal(id)
   }
 
@@ -28,7 +28,7 @@ class List extends React.Component {
               </Link>
               <div className='list-item-controls'>
                 <button type='button' onClick={() => this.handleDelete(listItem.id)}>❌</button>
-                <button type='button' onClick={() => this.handleComplete(listItem.id)}>✔️</button>
+                <button type='button' onClick={() => this.handleCompletion(listItem.id)}>✔️</button>
               </div>
             </div>
             )}
@@ -45,6 +45,10 @@ class List extends React.Component {
                 <Link to={`/goal/${listItem.id}`}>
                   <h1 className='completed-goal-title' key={listItem.id}>{listItem.name}</h1>
                 </Link>
+                <div className='list-item-controls'>
+                  <button type='button' onClick={() => this.handleDelete(listItem.id)}>❌</button>
+                  <button type='button' onClick={() => this.handleCompletion(listItem.id)}>↩️</button>
+                </div>
               </div>
               )}
           </div>

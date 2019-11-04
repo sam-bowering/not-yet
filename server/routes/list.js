@@ -50,10 +50,22 @@ router.delete('/goals', (req, res) => {
 router.put('/goals', (req, res) => {
   const { id } = req.body
 
-  db.completeGoalById(id)
-    .then(res.status(200))
-    .then(db.getList()
-      .then(list => res.json(list)))
-  })
+  function checkCompletion (goal) {
+    if (!goal.completed) {
+      db.completeGoalById(id)
+        .then(res.status(200))
+        .then(db.getList()
+          .then(list => res.json(list)))
+    } else {
+      db.uncompleteGoalById(id)
+        .then(res.status(200))
+        .then(db.getList()
+          .then(list => res.json(list)))
+    }
+  }
+
+  db.getGoalById(id)
+    .then(goal => checkCompletion(goal))
+})
 
 module.exports = router
