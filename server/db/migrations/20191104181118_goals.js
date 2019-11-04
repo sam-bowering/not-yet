@@ -1,7 +1,6 @@
 exports.up = (knex, Promise) => {
-  return knex.schema.createTable('list', table => {
-    table.increments('id')
-      .primary()
+  return knex.schema.createTable('goals', table => {
+    table.increments('id').primary()
     table.string('name')
     table.string('description')
     table.boolean('completed')
@@ -11,5 +10,5 @@ exports.up = (knex, Promise) => {
 }
 
 exports.down = (knex, Promise) => {
-  return knex.schema.dropTable('list')
+  return knex.schema.dropTable('goals')
 }
