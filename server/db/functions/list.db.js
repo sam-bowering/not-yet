@@ -27,10 +27,17 @@ function deleteGoalById (id, db = connection) {
     .del()
 }
 
+function completeGoalById (id, db = connection) {
+  return db('list')
+    .where('id', id)
+    .update({ completed: true })
+}
+
 module.exports = {
   getList,
   addGoal,
   getGoalByName,
   getGoalById,
-  deleteGoalById
+  deleteGoalById,
+  completeGoalById
 }
