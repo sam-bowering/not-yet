@@ -47,4 +47,13 @@ router.delete('/goals', (req, res) => {
       .then(list => res.json(list)))
 })
 
+router.put('/goals', (req, res) => {
+  const { id } = req.body
+
+  db.completeGoalById(id)
+    .then(res.status(200))
+    .then(db.getList()
+      .then(list => res.json(list)))
+  })
+
 module.exports = router
