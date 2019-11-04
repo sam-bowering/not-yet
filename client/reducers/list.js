@@ -11,12 +11,10 @@ const listState = {
 export function lists (state = listState, action) {
   switch (action.type) {
     case GET_LIST_SUCCESS:
-      const uncompletedList = action.list.filter(listItem => listItem.completed === 0 || listItem.completed === false)
-      const completedList = action.list.filter(listItem => listItem.completed === 1 || listItem.completed === true)
       return {
         fullList: [...action.list],
-        uncompletedList,
-        completedList
+        uncompletedList: [...action.list.filter(listItem => listItem.completed === 0 || listItem.completed === false)],
+        completedList: [...action.list.filter(listItem => listItem.completed === 1 || listItem.completed === true)]
       }
     case ADD_GOAL_SUCCESS:
       return {
@@ -41,7 +39,7 @@ export function lists (state = listState, action) {
       return {
         fullList: [...action.list],
         uncompletedList: [...action.list.filter(listItem => listItem.completed === 0 || listItem.completed === false)],
-        completedList: [...action.list.filter(listItem => listItem.completed === 1 || listItem.completed === true)],
+        completedList: [...action.list.filter(listItem => listItem.completed === 1 || listItem.completed === true)]
       }
     default:
       return state

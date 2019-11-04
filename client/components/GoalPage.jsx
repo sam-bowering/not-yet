@@ -10,7 +10,8 @@ class GoalPage extends React.Component {
     this.props.getSelectedGoal(goalId)
       .then(() => {
         this.setState({
-          title: this.props.selectedGoal.name
+          title: this.props.selectedGoal.name,
+          description: this.props.selectedGoal.description
         })
       })
   }
@@ -20,7 +21,7 @@ class GoalPage extends React.Component {
   }
 
   render () {
-    return(
+    return (
       <>
         <>
           {this.props.isLoading && <Loading />}
@@ -28,12 +29,18 @@ class GoalPage extends React.Component {
         <>
           {!this.props.isLoading &&
             <div className='selected-goal-container'>
-            <div className='selected-goal-container-header'>
-              <div className='selected-goal-header'>
-                <h1>{this.state.title}</h1>
+              <div className='selected-goal-container-header'>
+                <div className='selected-goal-header'>
+                  <h1>{this.state.title}</h1>
+                </div>
+              </div>
+              <div className='selectedGoal-container-body'>
+                <div className='selectedGoal-description'>
+                  <h1>Description:</h1>
+                  <p>{this.state.description}</p>
+                </div>
               </div>
             </div>
-          </div>
           }
         </>
       </>

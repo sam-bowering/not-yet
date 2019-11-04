@@ -5,20 +5,20 @@ import List from './List'
 import { getList } from '../actions/getList'
 
 const Goals = () => {
-    return(
+  return (
       <>
       <div className='list-container'>
         <div className='list-container-header'>
-            <div className='list-header'>
-              <h1>Goals.</h1>
-            </div>
+          <div className='list-header'>
+            <h1>Goals.</h1>
+          </div>
         </div>
         <div className='list-goals'>
           <List />
         </div>
       </div>
       </>
-    )
+  )
 }
 
 const MapDispatchToProps = dispatch => {

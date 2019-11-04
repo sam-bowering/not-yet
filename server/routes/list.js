@@ -20,19 +20,19 @@ router.post('/create', (req, res) => {
     .then(res.status(200))
     .then(db.getGoalByName(name)
       .then(goal => res.json({
-      id: goal.id, 
-      name, 
-      description, 
-      completed: false, 
-      primary: true,
-      dependants
+        id: goal.id,
+        name,
+        description,
+        completed: false,
+        primary: true,
+        dependants
       }))
     )
 })
 
 router.get('/goal/:selectedGoal', (req, res) => {
   const id = Number(req.params.selectedGoal)
-  
+
   db.getGoalById(id)
     .then(goal => res.json(goal))
     .then(res.status(200))

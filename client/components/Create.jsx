@@ -42,7 +42,7 @@ class Create extends React.Component {
   }
 
   render () {
-    return(
+    return (
       <div className='create-container' onKeyDown={this.handleEnter}>
         <div className='create-container-header'>
           <div className='create-header'>
@@ -56,11 +56,11 @@ class Create extends React.Component {
               <Form.Group widths='equal'>
                 <Form.Input placeholder='Title' name='title' value={this.state.title} onChange={this.handleChange}/>
               </Form.Group>
-              <Form.TextArea placeholder='Description' name='description' style={{height: '50vh'}} value={this.state.description} onChange={this.handleChange}/>
+              <Form.TextArea placeholder='Description' name='description' style={{ height: '50vh' }} value={this.state.description} onChange={this.handleChange}/>
             </Form>
-            <Button type='button' style={{marginTop: '2vh'}} onClick={this.handleSubmit}>Submit</Button>
+            <Button type='button' style={{ marginTop: '2vh' }} onClick={this.handleSubmit}>Submit</Button>
           </div>
-          <Divider vertical style={{height: '35vh'}}>AND</Divider>
+          <Divider vertical style={{ height: '35vh' }}>AND</Divider>
           <div className='current-goals-container'>
             <h1 className='current-goals-title'>Current Goals</h1>
             <GoalsList />
@@ -73,8 +73,8 @@ class Create extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addGoal: (goal) => dispatch(addGoal(goal)),
+    addGoal: (goal) => dispatch(addGoal(goal))
   }
-}    
+}
 
 export default connect(null, mapDispatchToProps)(Create)

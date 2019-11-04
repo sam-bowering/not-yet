@@ -1,8 +1,8 @@
 import React from 'react'
 import { Loader } from 'semantic-ui-react'
 
-const Loading = props => {
-  return(
+const Loading = () => {
+  return (
     <div className='loading-container'>
       <Loader active size='big' />
     </div>
