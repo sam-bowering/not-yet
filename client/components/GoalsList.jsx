@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const GoalsList = (props) => {
   return (
     <>
-      <ul>
+      <ul className='goals-list-ul'>
         {props.currentGoals.map(goal =>
           <li key={goal.name}>
             <div className='current-goal-item'>

@@ -294,7 +294,7 @@
   transition: 1s;
 }
 
-ul {
+.goals-list-ul {
   direction: rtl;
   list-style-type: none;
   position: relative;
@@ -340,8 +340,8 @@ ul {
   padding: 10px;
 }
 
-.selectedGoal-description:hover {
-  background-color: rgba(170, 166, 157,1.0);
-  color: white;
-  border-radius: 15px;
+.tasks-ul {
+  list-style-type: none;
+  position: relative;
+  right: 2.5vw;
 }

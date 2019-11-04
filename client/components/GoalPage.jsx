@@ -50,11 +50,11 @@ class GoalPage extends React.Component {
                   <h1>Required Tasks:</h1>
                   {this.props.tasksLoading && <Loading />}
                   {!this.props.tasksLoading &&
-                    <>
-                    {this.state.tasks.map(task =>
-                      <h1 key={task.id}>{task.name}</h1>
-                    )}
-                    </>
+                    <ul className='tasks-ul'>
+                      {this.state.tasks.map(task =>
+                        <li key={task.id}>{task.name}</li>
+                      )}
+                    </ul>
                   }
                   {/* <TaskList /> */}
                 </div>
