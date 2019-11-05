@@ -1,5 +1,4 @@
 const express = require('express')
-
 const router = express()
 
 const db = require('../db/functions/list.db')
