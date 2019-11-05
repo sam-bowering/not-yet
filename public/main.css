@@ -330,13 +330,27 @@
 }
 
 .selectedGoal-container-body {
+  width: 100vw;
+}
 
+.selectedGoal-left {
+  float: left;
+  display: inline-block;
+  width: 20vw;
+}
+
+.selectedGoal-centre {
+  display: inline-block;
+  width: 60vw;
 }
 
 .selectedGoal-description {
-  margin: 5vh 0vw 0vh 20vw;
   width: 60vw;
-  transition: 0.3s;
+  padding: 10px;
+}
+
+.selectedGoal-tasks {
+  width: 60vw;
   padding: 10px;
 }
 
@@ -344,4 +358,20 @@
   list-style-type: none;
   position: relative;
   right: 2.5vw;
+}
+
+.task-item {
+  padding-top: 1vh;
+  width: 58.5vw;
+}
+
+.selectedGoal-progress {
+  padding: 4vh 10vw 2vh 10vw;
+  text-align: center;
+  width: 100vw;
+}
+
+.selectedGoal-settings {
+  padding-left: 2.5vw;
+  padding-top: 1vh;
 }
