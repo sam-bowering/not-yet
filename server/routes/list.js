@@ -67,4 +67,13 @@ router.put('/goals', (req, res) => {
     .then(goal => checkCompletion(goal))
 })
 
+router.put('/goal', (req, res) => {
+  const { desc, id } = req.body
+
+  db.updateGoalDescription(desc, id)
+    .then(res.status(200))
+    .then(db.getList()
+      .then(list => res.json(list)))
+})
+
 module.exports = router
