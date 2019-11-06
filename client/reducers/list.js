@@ -3,6 +3,7 @@ import { ADD_GOAL_SUCCESS } from '../actions/addGoal'
 import { GET_SELECTEDGOAL_SUCCESS } from '../actions/getSelectedGoal'
 import { DELETE_GOAL_SUCCESS } from '../actions/deleteGoal'
 import { COMPLETE_GOAL_SUCCESS } from '../actions/completeGoal'
+import { EDIT_GOALDESCRIPTION_SUCCESS } from '../actions/editGoalDescription'
 
 const listState = {
   fullList: []
@@ -36,6 +37,12 @@ export function lists (state = listState, action) {
         completedList: [...action.list.filter(listItem => listItem.completed === 1 || listItem.completed === true)]
       }
     case COMPLETE_GOAL_SUCCESS:
+      return {
+        fullList: [...action.list],
+        uncompletedList: [...action.list.filter(listItem => listItem.completed === 0 || listItem.completed === false)],
+        completedList: [...action.list.filter(listItem => listItem.completed === 1 || listItem.completed === true)]
+      }
+    case EDIT_GOALDESCRIPTION_SUCCESS:
       return {
         fullList: [...action.list],
         uncompletedList: [...action.list.filter(listItem => listItem.completed === 0 || listItem.completed === false)],
