@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Segment, Progress, Menu, Modal, Button, Grid } from 'semantic-ui-react'
+import { Segment, Progress, Menu } from 'semantic-ui-react'
 
 import { getSelectedGoal } from '../actions/getSelectedGoal'
 import { getTasksBySelectedGoal } from '../actions/getTasksBySelectedGoal'
 import Loading from './Loading'
 import Task from './Task'
+import GoalSettings from './GoalSettings'
 
 class GoalPage extends React.Component {
   componentDidMount () {
@@ -28,13 +29,10 @@ class GoalPage extends React.Component {
   state = {
     title: '',
     tasks: [],
-    activeItem: 'Header'
+    goalProgress: 1
   }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
   render () {
-    const { activeItem } = this.state
     return (
       <>
         <>
@@ -50,70 +48,22 @@ class GoalPage extends React.Component {
               </div>
               <div className='selectedGoal-container-body'>
                 <div className='selectedGoal-progress'>
-                  <Progress percent={60} active color='orange'>
-                    Progress
+                  <Progress percent={this.state.goalProgress} active color='orange'>
+                    In Progress
                   </Progress>
                 </div>
                 <div className='selectedGoal-left'>
-                  <div className='selectedGoal-settings'>
-                    <Modal trigger={<Button>Settings</Button>}>
-                      <Modal.Header>Settings</Modal.Header>
-                      <Modal.Content>
-                        <Grid>
-                          <Grid.Column width={4}>
-                            <Menu fluid vertical tabular>
-                              <Menu.Item
-                                name='Header'
-                                active={activeItem === 'Header'}
-                                onClick={this.handleItemClick}
-                              />
-                              <Menu.Item
-                                name='Progress Bar'
-                                active={activeItem === 'Progress Bar'}
-                                onClick={this.handleItemClick}
-                              />
-                              <Menu.Item
-                                name='Description'
-                                active={activeItem === 'Description'}
-                                onClick={this.handleItemClick}
-                              />
-                              <Menu.Item
-                                name='Tasks'
-                                active={activeItem === 'Tasks'}
-                                onClick={this.handleItemClick}
-                              />
-                            </Menu>
-                          </Grid.Column>
-
-                          <Grid.Column stretched width={12}>
-                            {
-                              activeItem === 'Header' &&
-                                <Segment>
-                                  Header
-                                </Segment>
-                            }
-                            {
-                              activeItem === 'Progress Bar' &&
-                                <Segment>
-                                  Progress Bar
-                                </Segment>
-                            }
-                            {
-                              activeItem === 'Description' &&
-                                <Segment>
-                                  Description
-                                </Segment>
-                            }
-                            {
-                              activeItem === 'Tasks' &&
-                                <Segment>
-                                  Tasks
-                                </Segment>
-                            }
-                          </Grid.Column>
-                        </Grid>
-                      </Modal.Content>
-                    </Modal>
+                  <div className='selectedGoal-menu'>
+                    <Menu vertical>
+                      <Menu.Item
+                        name={'editDesc'}>
+                          Edit Description
+                      </Menu.Item>
+                      <Menu.Item
+                        name={'addTask'}>
+                        Add Task
+                      </Menu.Item>
+                    </Menu>
                   </div>
                 </div>
                 <div className='selectedGoal-centre'>
@@ -134,6 +84,9 @@ class GoalPage extends React.Component {
                     </ul>
                     }
                   </div>
+                </div>
+                <div className='selectedGoal-right'>
+                  <GoalSettings />
                 </div>
               </div>
             </div>
