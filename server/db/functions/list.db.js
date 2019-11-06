@@ -39,6 +39,12 @@ function uncompleteGoalById (id, db = connection) {
     .update({ completed: false })
 }
 
+function updateGoalDescription (desc, id, db = connection) {
+  return db('goals')
+    .where('id', id)
+    .update({ description: desc })
+}
+
 module.exports = {
   getList,
   addGoal,
@@ -46,5 +52,6 @@ module.exports = {
   getGoalById,
   deleteGoalById,
   completeGoalById,
-  uncompleteGoalById
+  uncompleteGoalById,
+  updateGoalDescription
 }
