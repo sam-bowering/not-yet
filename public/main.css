@@ -344,6 +344,12 @@
   width: 60vw;
 }
 
+.selectedGoal-right {
+  float: right;
+  display: inline-block;
+  width: 20vw;
+}
+
 .selectedGoal-description {
   width: 60vw;
   padding: 10px;
@@ -372,6 +378,17 @@
 }
 
 .selectedGoal-settings {
+  padding-left: 8.5vw;
+  padding-top: 1vh;
+}
+
+.selectedGoal-menu {
   padding-left: 2.5vw;
   padding-top: 1vh;
+  width: 10vw;
+  cursor: pointer;
+}
+
+.ui.vertical.menu .item:hover {
+  background-color: rgb(240, 239, 239);
 }
