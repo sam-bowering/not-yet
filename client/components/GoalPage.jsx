@@ -5,6 +5,7 @@ import { Segment, Progress, Menu, Form, Button } from 'semantic-ui-react'
 import { getSelectedGoal } from '../actions/getSelectedGoal'
 import { getTasksBySelectedGoal } from '../actions/getTasksBySelectedGoal'
 import { addTask } from '../actions/addTask'
+import { editGoalDescription } from '../actions/editGoalDescription'
 import Loading from './Loading'
 import Task from './Task'
 import GoalSettings from './GoalSettings'
@@ -32,6 +33,7 @@ class GoalPage extends React.Component {
     tasks: [],
     goalProgress: 1,
     taskAddVisible: false,
+    editDescVisible: false,
     newTitle: '',
     newDescription: ''
   }
@@ -69,6 +71,33 @@ class GoalPage extends React.Component {
       }))
   }
 
+  handleShowEditDesc = () => {
+    switch (this.state.editDescVisible) {
+      case false:
+        return this.setState({
+          editDescVisible: true
+        })
+      case true:
+        return this.setState({
+          editDescVisible: false
+        })
+    }
+  }
+
+  handleEditDesc = (e) => {
+    this.setState({
+      description: e.target.value
+    })
+  }
+
+  handleSubmitDesc = (e, desc, id) => {
+    if (e.keyCode === 13) {
+      this.props.editGoalDescription({ desc, id })
+        .then(this.props.getSelectedGoal(id))
+        .then(this.handleShowEditDesc())
+    }
+  }
+
   render () {
     return (
       <>
@@ -93,13 +122,14 @@ class GoalPage extends React.Component {
                   <div className='selectedGoal-menu'>
                     <Menu vertical>
                       <Menu.Item
-                        name={'editDesc'}>
+                        name={'editDesc'}
+                        onClick={this.handleShowEditDesc}>
                           Edit Description
                       </Menu.Item>
                       <Menu.Item
                         name={'addTask'}
                         onClick={this.handleShowTaskInput}>
-                        Add Task
+                         Show/Hide Add Task
                       </Menu.Item>
                     </Menu>
                   </div>
@@ -108,7 +138,14 @@ class GoalPage extends React.Component {
                   <div className='selectedGoal-description'>
                     <Segment color='red' raised>
                       <h1>Description:</h1>
-                      <p>{this.state.description}</p>
+                      {!this.state.editDescVisible &&
+                        <p>{this.state.description}</p>
+                      }
+                      {this.state.editDescVisible &&
+                        <Form>
+                          <Form.Input name='editDescription' value={this.state.description} onChange={this.handleEditDesc} onKeyDown={(e) => this.handleSubmitDesc(e, this.state.description, this.props.selectedGoal.id)}></Form.Input>
+                        </Form>
+                      }
                     </Segment>
                   </div>
                   <div className='selectedGoal-tasks'>
@@ -119,7 +156,7 @@ class GoalPage extends React.Component {
                           <Form.Input placeholder='New Task' name='newTitle' value={this.state.newTitle} onChange={this.handleChange}/>
                         </Form.Group>
                         <Form.TextArea placeholder='Description' name='newDescription' value={this.state.newDescription} onChange={this.handleChange}></Form.TextArea>
-                        <Button type='button' onClick={() => this.handleAddTask(this.state.newTitle, this.state.newDescription, this.props.selectedGoal.id)}>Add</Button>
+                        <Button style={{ marginBottom: '2vh' }}type='button' onClick={() => this.handleAddTask(this.state.newTitle, this.state.newDescription, this.props.selectedGoal.id)}>Add</Button>
                       </Form>
                     }
                     {this.props.tasksLoading && <Loading />}
@@ -157,7 +194,8 @@ const MapDispatchToProps = dispatch => {
   return {
     getSelectedGoal: id => dispatch(getSelectedGoal(id)),
     getTasksBySelectedGoal: id => dispatch(getTasksBySelectedGoal(id)),
-    addTask: (title, description, goalId) => dispatch(addTask(title, description, goalId))
+    addTask: (title, description, goalId) => dispatch(addTask(title, description, goalId)),
+    editGoalDescription: (desc, id) => dispatch(editGoalDescription(desc, id))
   }
 }
 
