@@ -26,12 +26,17 @@ class GoalPage extends React.Component {
           tasks: [...this.props.tasks]
         })
       })
+      .then(() => {
+        this.setState({
+          goalProgress: 100 / this.state.tasks.length
+        })
+      })
   }
 
   state = {
     title: '',
     tasks: [],
-    goalProgress: 1,
+    goalProgress: 100,
     taskAddVisible: false,
     editDescVisible: false,
     newTitle: '',
@@ -67,7 +72,8 @@ class GoalPage extends React.Component {
         }))
       .then(this.setState({
         newTitle: '',
-        newDescription: ''
+        newDescription: '',
+        goalProgress: 100 / this.state.tasks.length
       }))
   }
 
