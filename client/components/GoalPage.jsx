@@ -27,9 +27,12 @@ class GoalPage extends React.Component {
         })
       })
       .then(() => {
-        this.setState({
-          goalProgress: 100 / this.state.tasks.length
-        })
+        if (this.props.tasks.length > 1) {
+          this.setState({
+            progressVisible: true,
+            goalProgress: 100 / this.state.tasks.length
+          })
+        }
       })
   }
 
@@ -39,6 +42,7 @@ class GoalPage extends React.Component {
     goalProgress: 100,
     taskAddVisible: false,
     editDescVisible: false,
+    progressVisible: false,
     newTitle: '',
     newDescription: ''
   }
@@ -70,11 +74,23 @@ class GoalPage extends React.Component {
             tasks: [...this.props.tasks]
           })
         }))
-      .then(this.setState({
+      .then(this.checkTaskLength)
+  }
+
+  checkTaskLength = () => {
+    if (this.state.tasks.length >= 1) {
+      this.setState({
         newTitle: '',
         newDescription: '',
-        goalProgress: 100 / this.state.tasks.length
-      }))
+        progressVisible: true,
+        goalProgress: 100 / (this.state.tasks.length + 1)
+      })
+    } else {
+      this.setState({
+        newTitle: '',
+        newDescription: ''
+      })
+    }
   }
 
   handleShowEditDesc = () => {
@@ -120,9 +136,11 @@ class GoalPage extends React.Component {
               </div>
               <div className='selectedGoal-container-body'>
                 <div className='selectedGoal-progress'>
-                  <Progress percent={this.state.goalProgress} active color='orange'>
+                  {this.state.progressVisible &&
+                    <Progress percent={this.state.goalProgress} active color='orange'>
                     In Progress
-                  </Progress>
+                    </Progress>
+                  }
                 </div>
                 <div className='selectedGoal-left'>
                   <div className='selectedGoal-menu'>
