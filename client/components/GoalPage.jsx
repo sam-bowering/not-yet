@@ -39,6 +39,7 @@ class GoalPage extends React.Component {
           })
         }
       })
+      .then(this.checkGoalCompleted)
   }
 
   state = {
@@ -49,7 +50,11 @@ class GoalPage extends React.Component {
     editDescVisible: false,
     progressVisible: false,
     newTitle: '',
-    newDescription: ''
+    newDescription: '',
+    isCompleted: false,
+    style: {
+      color: 'white'
+    }
   }
 
   handleShowTaskInput = () => {
@@ -125,6 +130,17 @@ class GoalPage extends React.Component {
     }
   }
 
+  checkGoalCompleted = () => {
+    if (this.props.selectedGoal.completed === 1) {
+      this.setState({
+        isCompleted: true,
+        style: {
+          color: 'rgba(123, 237, 159,1.0)'
+        }
+      })
+    }
+  }
+
   render () {
     return (
       <>
@@ -136,14 +152,19 @@ class GoalPage extends React.Component {
             <div className='selected-goal-container'>
               <div className='selected-goal-container-header'>
                 <div className='selected-goal-header'>
-                  <h1>{this.state.title}</h1>
+                  <h1 style={this.state.style}>{this.state.title}</h1>
                 </div>
               </div>
               <div className='selectedGoal-container-body'>
                 <div className='selectedGoal-progress'>
-                  {this.state.progressVisible &&
+                  {this.state.progressVisible && !this.state.isCompleted &&
                     <Progress percent={this.state.goalProgress} active color='orange'>
-                    In Progress
+                      In Progress
+                    </Progress>
+                  }
+                  {this.state.progressVisible && this.state.isCompleted &&
+                    <Progress percent={100} success>
+                      Done!
                     </Progress>
                   }
                 </div>
