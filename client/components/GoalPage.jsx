@@ -33,6 +33,11 @@ class GoalPage extends React.Component {
             goalProgress: 100 / this.state.tasks.length
           })
         }
+        if (this.props.tasks.length === 0) {
+          this.setState({
+            taskAddVisible: true
+          })
+        }
       })
   }
 
