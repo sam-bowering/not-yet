@@ -21,4 +21,12 @@ router.post('/goal', (req, res) => {
     .then(task => res.json(task))
 })
 
+router.delete('/goal/:taskId', (req, res) => {
+  const { id, goalId } = req.body
+
+  db.deleteTaskById(id)
+    .then(db.getTasksByGoalId(goalId)
+      .then(tasks => res.json(tasks)))
+})
+
 module.exports = router

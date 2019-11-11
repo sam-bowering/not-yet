@@ -11,7 +11,14 @@ function addTask (title, description, completed, goalId, db = connection) {
     .insert({ name: title, description, completed, goal_id: goalId })
 }
 
+function deleteTaskById (id, db = connection) {
+  return db('tasks')
+    .where('tasks.id', id)
+    .del()
+}
+
 module.exports = {
   getTasksByGoalId,
-  addTask
+  addTask,
+  deleteTaskById
 }

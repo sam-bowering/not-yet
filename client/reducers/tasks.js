@@ -1,5 +1,6 @@
 import { GET_TASKS_SUCCESS } from '../actions/getTasksBySelectedGoal'
 import { ADD_TASK_SUCCESS } from '../actions/addTask'
+import { DELETE_TASK_SUCCESS } from '../actions/deleteTask'
 
 const tasksState = {
   tasks: []
@@ -13,7 +14,11 @@ export function tasks (state = tasksState, action) {
       }
     case ADD_TASK_SUCCESS:
       return {
-        goalsTasks: [...state.goalTasks, action.task]
+        goalTasks: [...state.goalTasks, action.task]
+      }
+    case DELETE_TASK_SUCCESS:
+      return {
+        goalTasks: ['fart']
       }
     default:
       return state

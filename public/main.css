@@ -371,6 +371,16 @@
   width: 58.5vw;
 }
 
+.task-item-delete {
+  float: right;
+  transition: 0.3s;
+}
+
+.task-item-delete:hover {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
 .selectedGoal-progress {
   padding: 4vh 10vw 2vh 10vw;
   text-align: center;

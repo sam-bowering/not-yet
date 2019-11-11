@@ -213,7 +213,7 @@ class GoalPage extends React.Component {
                     {!this.props.tasksLoading &&
                     <ul className='tasks-ul'>
                       {this.state.tasks.map(task =>
-                        <Task key={task.id} name={task.name}/>
+                        <Task key={task.id} name={task.name} id={task.id}/>
                       )}
                     </ul>
                     }
